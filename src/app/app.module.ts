@@ -13,6 +13,7 @@ import { NavbarComponent } from './components/shared/navbar/navbar.component';
 
 //Servicios
 import {AllmusicService} from './services/allmusic.service';
+import { NoimagesPipe } from './pipes/noimages.pipe';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import {AllmusicService} from './services/allmusic.service';
     ArtistaComponent,
     SearchComponent,
     HomeComponent,
-    NavbarComponent
+    NavbarComponent,
+    NoimagesPipe
   ],
   imports: [
     BrowserModule,
