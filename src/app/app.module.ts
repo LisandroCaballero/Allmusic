@@ -13,7 +13,11 @@ import { NavbarComponent } from './components/shared/navbar/navbar.component';
 
 //Servicios
 import {AllmusicService} from './services/allmusic.service';
+
+//PIPES
 import { NoimagesPipe } from './pipes/noimages.pipe';
+import { TarjetasComponent } from './components/tarjetas/tarjetas.component';
+import { LoadingComponent } from './components/shared/loading/loading.component';
 
 
 @NgModule({
@@ -23,7 +27,9 @@ import { NoimagesPipe } from './pipes/noimages.pipe';
     SearchComponent,
     HomeComponent,
     NavbarComponent,
-    NoimagesPipe
+    NoimagesPipe,
+    TarjetasComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,

@@ -9,16 +9,19 @@ import {AllmusicService} from '../../services/allmusic.service';
 export class SearchComponent {
 
   artistas: any [] = [];
+  loading: boolean;
 
   constructor(private  allmusic: AllmusicService) {
   }
 
   buscar(termino: string) {
-    console.log(termino);
+    this.loading =true;
+
     this.allmusic.getArtista(termino)
       .subscribe((data: any) => {
         console.log(data);
         this.artistas = data;
+        this.loading = false;
       });
   }
 

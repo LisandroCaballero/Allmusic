@@ -10,10 +10,14 @@ import {AllmusicService} from '../../services/allmusic.service';
 export class HomeComponent  {
 
 nuevasCanciones: any [] = [];
+loading: boolean;
   constructor(private allmusic: AllmusicService) {
+    this.loading = true;
+
     this.allmusic.getNewReleases()
       .subscribe( (data: any) => {
         this.nuevasCanciones = data;
+        this.loading = false;
       });
   }
 }

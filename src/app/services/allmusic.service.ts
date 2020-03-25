@@ -13,7 +13,7 @@ export class AllmusicService {
     const url = `https://api.spotify.com/v1/${ query }`;
 
     const headers = new HttpHeaders({
-      'Authorization': 'Bearer BQA8GTg-u7-Smnd97OJQRogveHY1VN6dmpfODfkwBIbYR889Klff5lV86Vs-JBlLaq90UM49ABl7EA_SuyA'
+      'Authorization': 'Bearer BQC43g49fW2XALJIf6n4w_knwTkumhyBrDmofcgC64gjE8n1QB1Talds8sJdUk-yaf6s42fpHbazcgnDgaY'
     });
     return this.http.get(url, {headers});
   }
