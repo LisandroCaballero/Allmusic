@@ -17,7 +17,7 @@ export class SearchComponent {
   buscar(termino: string) {
     this.loading =true;
 
-    this.allmusic.getArtista(termino)
+    this.allmusic.getArtistas(termino)
       .subscribe((data: any) => {
         console.log(data);
         this.artistas = data;

@@ -1,19 +1,48 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
+import {AllmusicService} from '../../services/allmusic.service';
 
 @Component({
   selector: 'app-artista',
   templateUrl: './artista.component.html',
   styles: []
 })
-export class ArtistaComponent  {
+export class ArtistaComponent {
 
-  constructor(private router: ActivatedRoute) {
-    this.router.params.subscribe( params => {
+  artista: any = {};
+  topTracks: any[] = [];
+
+  loadingArtist: boolean;
+  constructor(private router: ActivatedRoute,
+              private allmusic: AllmusicService) {
+    this.loadingArtist = true;
+
+    this.router.params.subscribe(params => {
+      this.getArtista(params ['id']);
+      this.getTopTracks(params ['id']);
 
     });
   }
 
+  getArtista(id: string) {
+    this.loadingArtist = true;
 
+    this.allmusic.getArtista(id)
+      .subscribe(artista => {
+        console.log(artista);
+        this.artista = artista;
+        this.loadingArtist = false;
+
+      });
+
+  }
+  getTopTracks( id: string) {
+    this.allmusic.getTopTracks( id )
+      .subscribe( topTracks => {
+        this.topTracks = topTracks;
+      console.log(topTracks);
+      });
+
+  }
 
 }

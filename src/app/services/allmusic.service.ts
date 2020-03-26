@@ -13,7 +13,7 @@ export class AllmusicService {
     const url = `https://api.spotify.com/v1/${ query }`;
 
     const headers = new HttpHeaders({
-      'Authorization': 'Bearer BQC43g49fW2XALJIf6n4w_knwTkumhyBrDmofcgC64gjE8n1QB1Talds8sJdUk-yaf6s42fpHbazcgnDgaY'
+      'Authorization': 'Bearer BQAZ5Jy_TUESQLRxl-M7N75ymi656NSEjIJobyd8IXgmkJfneZH9vqVJGoY2IjraAO7kqCSeaHbMokXvtNU'
     });
     return this.http.get(url, {headers});
   }
@@ -24,10 +24,24 @@ export class AllmusicService {
       .pipe( map( data => data['albums'].items));
 
   }
-  getArtista( termino: string){
+  getArtistas( termino: string){
 
     return this.getQuery(`search?q=${termino}&type=artist&limit=15`)
       .pipe( map( data => data['artists'].items));
   }
+
+
+  getArtista( id: string){
+
+    return this.getQuery(`artists/${id}`);
+
+  }
+
+  getTopTracks( id: string){
+
+    return this.getQuery(`artists/${id}/top-tracks?country=us`)
+     .pipe( map( data => data['tracks']));
+  }
+
 
 }
